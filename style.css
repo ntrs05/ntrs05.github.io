@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* Reset CSS */
 * {
     margin: 0;
@@ -5,18 +8,12 @@
     box-sizing: border-box;
 }
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* Body styles */
 body {
     font-family: 'Montserrat', sans-serif;
     background: white;
 }
 
-section {
-    height: 100vh;
-}
 /* Header styles */
 .header {
     position: fixed;
@@ -42,19 +39,14 @@ section {
     animation: slideRight 1s ease forwards;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-}
-
 .navbar a {
+    display: inline-block;
+    font-size: 20px;
     color: white;
     text-decoration: none;
-    font-size: 20px;
     font-weight: 450;
     margin-left: 25px;
     transition: .3s;
-    opacity: 0;
     animation: slideDown .5s ease forwards;
 }
 
@@ -62,26 +54,12 @@ section {
     color: #5e81ac;
 }
 
-/* Hamburger menu styles */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
-    transition: all 0.3s ease;
-}
-
 /* Home section styles */
 .home {
     position: relative;
     width: 100%;
     justify-content: space-between;
+    min-height: 100vh;
     background: #2e3440 no-repeat;
     background-size: cover;
     background-position: center;
@@ -132,6 +110,7 @@ section {
 .home-sci a:hover {
     color: #5e81ac;
 }
+
 /* About section styles */
 .about {
     display: grid;
@@ -153,7 +132,7 @@ section {
 .about-text {
     color: white;
     transform: translateY(30px);
-    position: relative;
+    position: relative; 
     opacity: 0;
     animation: fadeIn .5s ease forwards;
     animation-delay: 3s;
@@ -172,23 +151,22 @@ ul {
 .text-primary:hover {
     color: white;
 }
-
-/* End section styles */
-.end {
-    width: 100%;
-    text-align: center;
-    padding: 25px 0;
-    background: #2e3440;
-    font-weight: 300;
-    color: white;
+/* Add this CSS for the hamburger menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .header {
-        padding: 20px 5%;
-    }
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
 
+@media (max-width: 768px) {
     .navbar {
         display: none;
         flex-direction: column;
@@ -213,15 +191,35 @@ ul {
         padding: 10px 0;
         margin: 5px;
         color: white;
-        opacity: 1;
     }
 
     .hamburger {
         display: flex;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 99999;
+    }
+}
+
+.end {
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #2e3440;
+    font-weight: 300;
+    color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .navbar {
+        margin-top: 20px;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 10px 0;
     }
 
     .home {

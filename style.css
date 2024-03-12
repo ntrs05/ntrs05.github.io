@@ -1,16 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
 }
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Body styles */
 body {
+    font-family: 'Montserrat', sans-serif;
     background: white;
 }
 
+section {
+    height: 100vh;
+}
+/* Header styles */
 .header {
     position: fixed;
     top: 0;
@@ -35,26 +42,46 @@ body {
     animation: slideRight 1s ease forwards;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
 .navbar a {
-    display: inline-block;
-    font-size: 20px;
     color: white;
     text-decoration: none;
+    font-size: 20px;
     font-weight: 450;
     margin-left: 25px;
     transition: .3s;
+    opacity: 0;
     animation: slideDown .5s ease forwards;
 }
 
 .navbar a:hover {
-    color: #5e81ac
+    color: #5e81ac;
 }
 
+/* Hamburger menu styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Home section styles */
 .home {
     position: relative;
     width: 100%;
     justify-content: space-between;
-    height: 100vh;
     background: #2e3440 no-repeat;
     background-size: cover;
     background-position: center;
@@ -106,15 +133,7 @@ body {
     color: #5e81ac;
 }
 
-#about img {
-    transform: translateX(60px);
-    margin: 5px 5px 5px 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    opacity: 0;
-    animation: fadeIn .5s ease forwards;
-    animation-delay: calc(.215s * var(--i));
-}
-
+/* About section styles */
 .about {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -123,13 +142,19 @@ body {
     padding: 50px 50px 50px 50px;
 }
 
-.about-text {
-    color: white;
-    transform: translateY(30px);
-    position: relative; 
+.about-img img {
+    transform: translateX(60px);
+    margin: 5px 5px 5px 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 0;
+    animation: fadeIn .5s ease forwards;
+    animation-delay: calc(.215s * var(--i));
 }
 
 .about-text {
+    color: white;
+    transform: translateY(30px);
+    position: relative;
     opacity: 0;
     animation: fadeIn .5s ease forwards;
     animation-delay: 3s;
@@ -146,13 +171,10 @@ ul {
 }
 
 .text-primary:hover {
-    color: white
+    color: white;
 }
 
-::marker {
-    color: white;
-  }
-
+/* End section styles */
 .end {
     width: 100%;
     text-align: center;
@@ -162,6 +184,71 @@ ul {
     color: white;
 }
 
+/* Responsive styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2e3440;
+        padding: 20px 0;
+        z-index: 9999;
+        overflow-y: auto;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        text-align: center;
+        padding: 10px 0;
+        margin: 5px;
+        color: white;
+        opacity: 1;
+    }
+
+    .hamburger {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 99999;
+    }
+
+    .home {
+        padding: 50px 5% 0;
+    }
+
+    .home-content h1 {
+        font-size: 40px;
+    }
+
+    .home-content p {
+        font-size: 16px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        padding: 50px 5%;
+    }
+
+    .about-img img {
+        transform: translateX(0);
+        margin: 0;
+    }
+}
+
+/* Keyframe animations */
 @keyframes slideRight {
     0% {
         transform: translateX(-40px);
@@ -201,5 +288,4 @@ ul {
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
-  }
-
+}
